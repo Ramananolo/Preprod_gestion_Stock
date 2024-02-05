@@ -1,0 +1,17 @@
+services:
+  - name: spring-app
+    buildCommand: "mvn clean install"
+    startCommand: "java -jar target/*.jar"
+    env:
+      - key: postgres://anna:fyEE6g3KjIpD2mvRsiWmrjMAi2r6iJCg@dpg-cmv3leicn0vc73amdhng-a/wallet_p919
+        fromDatabase:
+          name: wallet_p919
+          property: jdbc:postgresql://localhost:5432/wallet_p919
+      - key: anna
+        fromDatabase:
+          name: wallet_p919
+          property: postgres
+      - key: fyEE6g3KjIpD2mvRsiWmrjMAi2r6iJCg
+        fromDatabase:
+          name: wallet_p919
+          property: anna
